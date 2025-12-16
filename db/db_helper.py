@@ -2,11 +2,14 @@ import yaml
 import os
 from db_constants import *
 
-# 1. Function to read config
 def load_config():
-    config_path = db_config_path
-    if not os.path.exists(config_path):
-        raise FileNotFoundError(f"Config file not found at {config_path}")
-    
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+    # Priority: Env Vars > Constants
+    return {
+        'database': {
+            'host': os.getenv('DB_HOST', host),
+            'port': os.getenv('DB_PORT', port),
+            'user': os.getenv('DB_USER', user),
+            'password': os.getenv('DB_PASSWORD', password),
+            'db_name': os.getenv('DB_NAME', db_name)
+        }
+    }

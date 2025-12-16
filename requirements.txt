@@ -1,0 +1,17 @@
+# Database
+asyncpg==0.28.0
+PyYAML==6.0.1
+SQLAlchemy==2.0.23
+alembic==1.12.1
+
+# API & Core
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.2
+pydantic-settings==2.1.0
+
+# Security (Planned)
+python-jose[cryptography]==3.3.0
+passlib[argon2]==1.7.4
+python-multipart==0.0.6
+python-dotenv

@@ -1,35 +1,40 @@
-
 import asyncio
 import asyncpg
 import os
+import yaml
 
+from db_constants import *
+from py_logging import log_db
 
+# 1. Function to read config
+import urllib.parse
+from db_helper import load_config
 
 # 2. Main async function to test connection
 async def connect_to_db():
-    print("Loading configuration...")
+    log_db("Loading configuration...")
     config = load_config()
     db_conf = config['database']
     
-    dsn = f"postgresql://{db_conf['user']}:{db_conf['password']}@{db_conf['host']}:{db_conf['port']}/{db_conf['db_name']}"
+    # URL encode the password to handle special characters (like '@') safely
+    encoded_password = urllib.parse.quote_plus(db_conf['password'])
     
-    print(f"Connecting to: {dsn} ...")
+    dsn = f"postgresql://{db_conf['user']}:{encoded_password}@{db_conf['host']}:{db_conf['port']}/{db_conf['db_name']}"
+    
+    log_db(f"Connecting to: {dsn} ...")
     
     try:
-        # Create a connection
         conn = await asyncpg.connect(dsn)
-        print("✅ Success! Connected to PostgreSQL.")
+        log_db("✅ Success! Connected to PostgreSQL.")
         
-        # Run a simple query
         version = await conn.fetchval("SELECT version()")
-        print(f"Database/Version: {version}")
+        log_db(f"Database/Version: {version}")
         
         await conn.close()
-        print("Connection closed.")
+        log_db("Connection closed.")
         
     except Exception as e:
-        print(f"❌ Error connecting to database: {e}")
+        log_db(f"❌ Error connecting to database: {e}")
 
-# 3. Entry point
 if __name__ == "__main__":
     asyncio.run(connect_to_db())
