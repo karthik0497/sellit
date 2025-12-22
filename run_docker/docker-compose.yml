@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.11-slim
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+    volumes:
+      - ../:/app
+      - /app/venv
+    command: >
+      sh -c "python -m venv venv &&
+             . venv/bin/activate &&
+             pip install --no-cache-dir -r requirements.txt"

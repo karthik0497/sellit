@@ -1,0 +1,17 @@
+2025-12-22 16:49:59 | INFO     | APP_LOG    | Creating virtual environment in /home/qikpod/sellit/sellit/venv...
+2025-12-22 16:49:59 | INFO     | APP_LOG    | Running: /usr/bin/python3 -m venv venv
+2025-12-22 16:50:04 | INFO     | APP_LOG    | Installing requirements...
+2025-12-22 16:50:04 | INFO     | APP_LOG    | Running: /home/qikpod/sellit/sellit/venv/bin/pip install -r requirements.txt
+2025-12-22 16:50:19 | INFO     | APP_LOG    | 
+Environment setup complete.
+2025-12-22 16:50:19 | INFO     | APP_LOG    | PYTHONPATH set to: /home/qikpod/sellit/sellit
+2025-12-22 16:50:19 | INFO     | APP_LOG    | To run your application, activate the venv and run your entry point.
+2025-12-22 17:09:51 | INFO     | APP_LOG    | Virtual environment already exists in /home/qikpod/sellit/sellit/venv.
+2025-12-22 17:09:51 | INFO     | APP_LOG    | Installing requirements...
+2025-12-22 17:09:51 | INFO     | APP_LOG    | Running: /home/qikpod/sellit/sellit/venv/bin/pip install -r requirements.txt
+2025-12-22 17:09:53 | INFO     | APP_LOG    | 
+Environment setup complete.
+2025-12-22 17:09:53 | INFO     | APP_LOG    | PYTHONPATH set to: /home/qikpod/sellit/sellit
+2025-12-22 17:09:53 | INFO     | APP_LOG    | To run your application, activate the venv and run your entry point.
+2025-12-22 17:09:58 | INFO     | APP_LOG    | Starting Docker containers...
+2025-12-22 17:09:58 | INFO     | APP_LOG    | Running: docker compose -f /home/qikpod/sellit/sellit/run_docker/docker-compose.yml up --build

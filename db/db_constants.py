@@ -1,6 +1,0 @@
-db_config_path = "config.yaml"
-user="sellit_user"
-password="password"
-host="sellit_postgres"
-port="5432"
-db_name="sellit_db"
